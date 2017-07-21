@@ -9,17 +9,17 @@ var N = 32;
       asientos[i] = undefined;
    }
 function redirect(event){
-  numAsientos = event.target.textContent;
+  nroAsientos = event.target.textContent;
     document.getElementById("mostrar").innerHTML=(event.target.textContent);
      (event.target).style.backgroundColor = ((event.target).style.backgroundColor=='rgb(248, 237, 80)') ? 'transparent' : '#F8ED50';
 }
 function reservar (){
-  var asiento = numAsientos;
+  var asiento = parseInt(nroAsientos);
 var name=document.getElementById("Nombre").value;
 var last_name=document.getElementById("Apellido").value;
 var dni=document.getElementById("DNI").value;
 var res=document.getElementById("mostrar").innerHTML=name + "<br>"+last_name+"<br>"+dni;
- asientos[numAsientos - 1] = {
+ asientos[nroAsientos - 1] = {
                nombre : name,
                dni: dni,
                apellido:last_name
@@ -28,13 +28,13 @@ var res=document.getElementById("mostrar").innerHTML=name + "<br>"+last_name+"<b
 }
 
 function cancelar(){
-  var asiento = numAsientos;
-var name=document.getElementById("Nombre").value;
-var last_name=document.getElementById("Apellido").value;
-var dni=document.getElementById("DNI").value;
-var res=document.getElementById("cancelar").innerHTML=name + "<br>"+last_name+"<br>"+dni;
+  var asiento=parseInt(nroAsientos);
+  if (nroAsientos >0 && nroAsientos<= N) {
+            asientos[nroAsientos - 1] = undefined;
+         }
 
-  asientos[numAsientos- 1] = undefined;
 
 }
+
+
 
